@@ -84,7 +84,14 @@ class ServerSettings(BaseModel):
     env_name: str = Field(
         description="Name of the environment (prod, staging, local...)"
     )
-    port: int = Field(description="Port of PrivateGPT FastAPI server, defaults to 8001")
+    bind: str = Field(
+        description="Bind for the PrivateGPT FastAPI server, defaults to 0.0.0.0. "
+        " Binds not matching [0-9:.] will be treated as a UNIX socket path."
+    )
+    port: int = Field(
+        description="Port of PrivateGPT FastAPI server, defaults to 8001. "
+        " Not used with a UNIX socker bind."
+    )
     cors: CorsSettings = Field(
         description="CORS configuration", default=CorsSettings(enabled=False)
     )

@@ -3,6 +3,7 @@
 # Syntax in `private_pgt/settings/settings.py`
 server:
   env_name: ${APP_ENV:prod}
+  bind: ${BIND:0.0.0.0}
   port: ${PORT:8001}
   cors:
     enabled: true
